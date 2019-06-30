@@ -5,6 +5,41 @@ using System.Windows.Interop;
 
 namespace WpfLearningProject2
 {
+    public enum WindowDockPosition
+    {
+        /// <summary>
+        /// Not docked
+        /// </summary>
+        Undocked = 0,
+        /// <summary>
+        /// Docked to the left of the screen
+        /// </summary>
+        Left = 1,
+        /// <summary>
+        /// Docked to the right of the screen
+        /// </summary>
+        Right = 2,
+        /// <summary>
+        /// Docked to the top/bottom of the screen
+        /// </summary>
+        TopBottom = 3,
+        /// <summary>
+        /// Docked to the top-left of the screen
+        /// </summary>
+        TopLeft = 4,
+        /// <summary>
+        /// Docked to the top-right of the screen
+        /// </summary>
+        TopRight = 5,
+        /// <summary>
+        /// Docked to the bottom-left of the screen
+        /// </summary>
+        BottomLeft = 6,
+        /// <summary>
+        /// Docked to the bottom-right of the screen
+        /// </summary>
+        BottomRight = 7,
+    }
     /// <summary>
     /// Fixes the issue with Windows of Style <see cref="WindowStyle.None"/> covering the taskbar
     /// </summary>
@@ -17,6 +52,31 @@ namespace WpfLearningProject2
         /// </summary>
         private Window mWindow;
 
+        /// <summary>
+        /// The last calculated available screen size
+        /// </summary>
+        private Rect mScreenSize = new Rect();
+
+        /// <summary>
+        /// How close to the edge the window has to be to be detected as at the edge of the screen
+        /// </summary>
+        private int mEdgeTolerance = 1;
+
+
+        /// <summary>
+        /// The last screen the window was on
+        /// </summary>
+        private IntPtr mLastScreen;
+
+        /// <summary>
+        /// The last known dock position
+        /// </summary>
+        private WindowDockPosition mLastDock = WindowDockPosition.Undocked;
+
+        /// <summary>
+        /// A flag indicating if the window is currently being moved/dragged
+        /// </summary>
+        private bool mBeingMoved = false;
         #endregion
 
         #region Dll Imports
@@ -46,6 +106,10 @@ namespace WpfLearningProject2
 
             // Listen out for source initialized to setup
             mWindow.SourceInitialized += Window_SourceInitialized;
+
+            // Monitor for edge docking
+            //mWindow.SizeChanged += Window_SizeChanged;
+            mWindow.LocationChanged += Window_LocationChanged;
         }
 
         #endregion
@@ -140,6 +204,88 @@ namespace WpfLearningProject2
             // Now we have the max size, allow the host to tweak as needed
             Marshal.StructureToPtr(lMmi, lParam, true);
         }
+
+
+        /// <summary>
+        /// Monitor for moving of the window and constantly check for docked positions
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_LocationChanged(object sender, EventArgs e)
+        {
+            //Window_SizeChanged(null, null);
+        }
+
+        /// <summary>
+        /// Monitors for size changes and detects if the window has been docked (Aero snap) to an edge
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        //private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        //{
+        //    // Make sure our monitor info is up-to-date
+        //    WmGetMinMaxInfo(IntPtr.Zero, IntPtr.Zero);
+
+        //    // Get the monitor transform for the current position
+        //    mMonitorDpi = VisualTreeHelper.GetDpi(mWindow);
+
+        //    // Cannot calculate size until we know monitor scale
+        //    if (mMonitorDpi == null)
+        //        return;
+
+        //    // Get window rectangle
+        //    var top = mWindow.Top;
+        //    var left = mWindow.Left;
+        //    var bottom = top + mWindow.Height;
+        //    var right = left + mWindow.Width;
+
+        //    // Get window position/size in device pixels
+        //    var windowTopLeft = new Point(left * mMonitorDpi.Value.DpiScaleX, top * mMonitorDpi.Value.DpiScaleX);
+        //    var windowBottomRight = new Point(right * mMonitorDpi.Value.DpiScaleX, bottom * mMonitorDpi.Value.DpiScaleX);
+
+        //    // Check for edges docked
+        //    var edgedTop = windowTopLeft.Y <= (mScreenSize.Top + mEdgeTolerance) && windowTopLeft.Y >= (mScreenSize.Top - mEdgeTolerance);
+        //    var edgedLeft = windowTopLeft.X <= (mScreenSize.Left + mEdgeTolerance) && windowTopLeft.X >= (mScreenSize.Left - mEdgeTolerance);
+        //    var edgedBottom = windowBottomRight.Y >= (mScreenSize.Bottom - mEdgeTolerance) && windowBottomRight.Y <= (mScreenSize.Bottom + mEdgeTolerance);
+        //    var edgedRight = windowBottomRight.X >= (mScreenSize.Right - mEdgeTolerance) && windowBottomRight.X <= (mScreenSize.Right + mEdgeTolerance);
+
+        //    // Get docked position
+        //    var dock = WindowDockPosition.Undocked;
+
+        //    // Left docking
+        //    if (edgedTop && edgedBottom && edgedLeft)
+        //        dock = WindowDockPosition.Left;
+        //    // Right docking
+        //    else if (edgedTop && edgedBottom && edgedRight)
+        //        dock = WindowDockPosition.Right;
+        //    // Top/bottom
+        //    else if (edgedTop && edgedBottom)
+        //        dock = WindowDockPosition.TopBottom;
+        //    // Top-left
+        //    else if (edgedTop && edgedLeft)
+        //        dock = WindowDockPosition.TopLeft;
+        //    // Top-right
+        //    else if (edgedTop && edgedRight)
+        //        dock = WindowDockPosition.TopRight;
+        //    // Bottom-left
+        //    else if (edgedBottom && edgedLeft)
+        //        dock = WindowDockPosition.BottomLeft;
+        //    // Bottom-right
+        //    else if (edgedBottom && edgedRight)
+        //        dock = WindowDockPosition.BottomRight;
+
+        //    // None
+        //    else
+        //        dock = WindowDockPosition.Undocked;
+
+        //    // If dock has changed
+        //    if (dock != mLastDock)
+        //        // Inform listeners
+        //        WindowDockChanged(dock);
+
+        //    // Save last dock position
+        //    mLastDock = dock;
+        //}
     }
 
     #region Dll Helper Structures

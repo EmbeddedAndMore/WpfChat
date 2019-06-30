@@ -2,14 +2,17 @@
 
 using System.Windows;
 using System.Windows.Input;
+using WpfLearningProject2.DataModels;
 
 namespace WpfLearningProject2.ViewModel
 {
     public class WindowViewModel : BaseViewModel
     {
+        #region Private Member
         private Window _window;
         private int _outerMarginSize = 10;
         private int _windowRadious = 10;
+        #endregion
 
 
         #region Public Memeber
@@ -18,14 +21,16 @@ namespace WpfLearningProject2.ViewModel
 
         public int WindowMinimumHeight { get; set; } = 400;
 
+        public bool Borderless { get { return (_window.WindowState == WindowState.Maximized); } }
+
         /// <summary>
         /// The resize boarder thickness
         /// </summary>
-        public int ResizeBoarder { get; set; } = 5;
+        public int ResizeBoarder { get { return Borderless ? 0 : 5; } }
 
         public Thickness ResizeBorderThickness { get { return new Thickness(ResizeBoarder + OuterMarginSize); }}
 
-        public Thickness InnerContentPadding { get { return new Thickness(ResizeBoarder); } }
+        public Thickness InnerContentPadding { get; set; } = new Thickness(0);
 
         public int OuterMarginSize {
             get
@@ -57,13 +62,17 @@ namespace WpfLearningProject2.ViewModel
         public int TitleHeight { get; set; } = 32;
 
         public GridLength TitleHeightGrigLength { get { return new GridLength(TitleHeight + ResizeBoarder); } }
+
+        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
         #endregion
+
         #region Command
         public ICommand MaximizeCommand { get; set; }
         public ICommand MinimizeCoammand { get; set; }
         public ICommand CloseCommand { get; set; }
         public ICommand MenuCommand { get; set; }
         #endregion
+
         #region ctor
         public WindowViewModel(Window window)
         {
