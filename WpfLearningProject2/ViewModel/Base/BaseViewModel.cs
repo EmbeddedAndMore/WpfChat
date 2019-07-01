@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,5 +23,29 @@ namespace WpfLearningProject2
         {
             PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
+
+
+        #region Command Helpers
+        protected async Task RunCommand(Expression<Func<bool>> updatingFlag, Func<Task> action)
+        {
+            // check if flag is true
+            if (updatingFlag.GetPropertyValue())
+                return;
+
+
+            updatingFlag.SetPeopertyValue(true);
+
+            try
+            {
+                await action();
+            }
+            finally
+            {
+                updatingFlag.SetPeopertyValue(false);
+
+            }
+
+        }
+        #endregion
     }
 }

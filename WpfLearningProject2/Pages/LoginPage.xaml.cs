@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,22 +13,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfLearningProject2.ViewModel;
 
 namespace WpfLearningProject2
 {
     /// <summary>
     /// Interaction logic for LoginPage.xaml
     /// </summary>
-    public partial class LoginPage : BasePage
+    public partial class LoginPage : BasePage<LoginViewModel>, IHavePassword
     {
         public LoginPage()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.AnimateOut();
-        }
+        public SecureString SecurePassword => PasswordText.SecurePassword;
     }
 }
