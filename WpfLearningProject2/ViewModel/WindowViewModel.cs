@@ -10,7 +10,7 @@ namespace WpfLearningProject2.ViewModel
     {
         #region Private Member
         private Window _window;
-        private int _outerMarginSize = 10;
+        private int _outerMarginSize = 2;
         private int _windowRadious = 10;
         #endregion
 
