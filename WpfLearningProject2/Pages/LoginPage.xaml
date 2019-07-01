@@ -30,7 +30,7 @@
                                Foreground="{StaticResource ForegroundDarkBrush}"/>
 
                         <TextBox Text="" Tag="Email" Margin="0 20 0 0"/>
-                        <TextBox Text="" Tag="Password"/>
+                        <PasswordBox Tag="Password"/>
 
                         <Button Content="Okay" HorizontalAlignment="Center" Margin="0 30 0 0"/>
                     </StackPanel>
