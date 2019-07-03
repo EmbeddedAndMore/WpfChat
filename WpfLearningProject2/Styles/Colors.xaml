@@ -32,4 +32,13 @@
     <Color x:Key="WordRed">#ff4747</Color>
     <SolidColorBrush x:Key="WordRedBrush" Color="{StaticResource WordRed}" />
 
+    <Color x:Key="BackColor">#f0f0f0</Color>
+    <SolidColorBrush x:Key="BackColorBrush" Color="{StaticResource BackColor}" />
+
+    <Color x:Key="BackLightColor">#f7f7f7</Color>
+    <SolidColorBrush x:Key="BackLightColorBrush" Color="{StaticResource BackLightColor}" />
+
+    <Color x:Key="BackDarkColor">#b7b7b7</Color>
+    <SolidColorBrush x:Key="BackDarkColorBrush" Color="{StaticResource BackDarkColor}" />
+
 </ResourceDictionary>

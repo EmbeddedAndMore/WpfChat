@@ -17,9 +17,9 @@ namespace WpfLearningProject2.ViewModel
 
         #region Public Memeber
 
-        public int WindowMinimumWidth { get; set; } = 400;
+        public double WindowMinimumWidth { get; set; } = 600;
 
-        public int WindowMinimumHeight { get; set; } = 400;
+        public double WindowMinimumHeight { get; set; } = 400;
 
         public bool Borderless { get { return (_window.WindowState == WindowState.Maximized); } }
 
@@ -63,7 +63,7 @@ namespace WpfLearningProject2.ViewModel
 
         public GridLength TitleHeightGrigLength { get { return new GridLength(TitleHeight + ResizeBoarder); } }
 
-        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
+        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Chat;
         #endregion
 
         #region Command

@@ -50,11 +50,18 @@ namespace WpfLearningProject2
         {
             await RunCommand(() => LoginIsRunning, async () =>
             {
-                  await Task.Delay(5000);
-                  var email = Email;
-                  var pass = (parameter as IHavePassword).SecurePassword.Unsecure();
+                await Task.Delay(5000);
+                var email = Email;
+                var pass = (parameter as IHavePassword).SecurePassword.Unsecure();
             });
-            
+            //int a, b;
+            //await RunCommand(()  =>  5 + 6 > 0, async () =>
+            //{
+            //    await Task.Delay(5000);
+            //    var email = Email;
+            //    var pass = (parameter as IHavePassword).SecurePassword.Unsecure();
+            //});
+
         }
     }
 }
