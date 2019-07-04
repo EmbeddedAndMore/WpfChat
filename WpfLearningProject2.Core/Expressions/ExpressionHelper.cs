@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfLearningProject2
+namespace WpfLearningProject2.Core
 {
     public static class ExpressionHelper
     {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WpfLearningProject2.ViewModel;
+using WpfLearningProject2.Core.ViewModel;
 
-namespace WpfLearningProject2
+namespace WpfLearningProject2.Core
 {
     public class ChatListDesignModel :ChatListViewModel
     {

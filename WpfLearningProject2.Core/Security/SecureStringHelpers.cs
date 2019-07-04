@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace WpfLearningProject2
+namespace WpfLearningProject2.Core
 {
     public static class SecureStringHelpers
     {

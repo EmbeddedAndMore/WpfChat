@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfLearningProject2.Core;
 using WpfLearningProject2.ViewModel;
 
 namespace WpfLearningProject2
@@ -20,7 +21,7 @@ namespace WpfLearningProject2
     /// <summary>
     /// Interaction logic for LoginPage.xaml
     /// </summary>
-    public partial class RegisterPage : BasePage<LoginViewModel>, IHavePassword
+    public partial class RegisterPage : BasePage<Core.LoginViewModel>, IHavePassword
     {
         public RegisterPage()
         {

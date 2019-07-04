@@ -5,7 +5,7 @@ using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfLearningProject2
+namespace WpfLearningProject2.Core
 {
     public interface IHavePassword
     {

@@ -20,7 +20,7 @@ namespace WpfLearningProject2
     /// <summary>
     /// Interaction logic for LoginPage.xaml
     /// </summary>
-    public partial class ChatPage : BasePage<LoginViewModel>
+    public partial class ChatPage : BasePage<Core.LoginViewModel>
     {
         public ChatPage()
         {

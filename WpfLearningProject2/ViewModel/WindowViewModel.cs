@@ -3,7 +3,8 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
-using WpfLearningProject2.DataModels;
+using WpfLearningProject2.Core;
+using WpfLearningProject2.Core.DataModels;
 
 namespace WpfLearningProject2.ViewModel
 {
@@ -62,8 +63,6 @@ namespace WpfLearningProject2.ViewModel
         public int TitleHeight { get; set; } = 32;
 
         public GridLength TitleHeightGrigLength { get { return new GridLength(TitleHeight + ResizeBoarder); } }
-
-        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Chat;
 
    
         #endregion

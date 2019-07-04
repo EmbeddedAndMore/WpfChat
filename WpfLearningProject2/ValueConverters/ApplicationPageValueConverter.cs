@@ -2,7 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.Globalization;
-using WpfLearningProject2.DataModels;
+using WpfLearningProject2.Core.DataModels;
 using WpfLearningProject2.ValueConverters;
 
 namespace WpfLearningProject2
@@ -18,6 +18,9 @@ namespace WpfLearningProject2
 
                 case ApplicationPage.Chat:
                     return new ChatPage();
+
+                case ApplicationPage.Register:
+                    return new RegisterPage();
 
                 default:
                     Debugger.Break();

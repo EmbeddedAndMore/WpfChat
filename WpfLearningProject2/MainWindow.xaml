@@ -118,9 +118,9 @@
         <Grid.Background>
             <ImageBrush TileMode="Tile" ViewportUnits="Absolute" Viewport="0 0 273 287" ImageSource="/Images/Backgrounds/sativa.png"/>
         </Grid.Background>
-        <Frame x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}"/>
+        <Frame Grid.Column="1" x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}"/>
 
-        <local:SideMenuControl>
+        <local:SideMenuControl Grid.Column="0">
             <local:ChatListControl/>
         </local:SideMenuControl>
     </Grid>

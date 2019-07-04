@@ -5,9 +5,8 @@ using System.Security;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using WpfLearningProject2.DataModels;
 
-namespace WpfLearningProject2
+namespace WpfLearningProject2.Core
 {
     public class LoginViewModel : BaseViewModel
     {
@@ -38,14 +37,16 @@ namespace WpfLearningProject2
         #region ctor
         public LoginViewModel()
         {
-            LoginCommand = new RelayParameterizedCommand(async (parameter) => await Login(parameter));
-            RegisterCommand = new RelayCommand(async ()=> await Register());
+            LoginCommand = new RelayParameterizedCommand(async (parameter) => await LoginAsync(parameter));
+            RegisterCommand = new RelayCommand(async ()=> await RegisterAsync());
         }
 
         private async Task RegisterAsync()
         {
             // TODO: Go rto register page
+            //((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Register;
             await Task.Delay(500);
+
         }
 
         /// <summary>
@@ -54,7 +55,7 @@ namespace WpfLearningProject2
         /// <param name="parameter"> secured string </param>
         /// <returns></returns>
         #endregion
-        public async Task Login(object parameter)
+        public async Task LoginAsync(object parameter)
         {
             await RunCommand(() => LoginIsRunning, async () =>
             {
