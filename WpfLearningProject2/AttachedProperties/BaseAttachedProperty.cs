@@ -8,6 +8,9 @@ namespace WpfLearningProject2
     {
         #region Public Events
         public event Action<DependencyObject, DependencyPropertyChangedEventArgs> ValueChanged = (sender, e) => { };
+
+        public event Action<DependencyObject, object> ValueUpdated = (sender, value) => { };
+        
         #endregion
 
         #region public properties
@@ -18,7 +21,20 @@ namespace WpfLearningProject2
         #endregion
 
         #region Attached Properties Definitions
-        public static readonly DependencyProperty ValueProperty = DependencyProperty.RegisterAttached("Value", typeof(Property), typeof(BaseAttachedProperty<Parent, Property>), new PropertyMetadata(new PropertyChangedCallback(OnValuePropertyChanged)));
+        public static readonly DependencyProperty ValueProperty = 
+            DependencyProperty.RegisterAttached("Value", 
+                typeof(Property), 
+                typeof(BaseAttachedProperty<Parent, Property>), 
+                new UIPropertyMetadata(default(Property),new PropertyChangedCallback(OnValuePropertyChanged), new CoerceValueCallback(OnValuePropertyUpdated)));
+
+        private static object OnValuePropertyUpdated(DependencyObject d, object baseValue)
+        {
+            Instance.OnValueUpdated(d, baseValue);
+
+            Instance.OnValueUpdated(d, baseValue);
+
+            return baseValue;
+        }
 
         private static void OnValuePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -34,6 +50,8 @@ namespace WpfLearningProject2
 
         #region Event Methods
         public virtual void OnValueChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e){ }
+
+        public virtual void OnValueUpdated(DependencyObject sender, object value) { }
         #endregion
     }
 }

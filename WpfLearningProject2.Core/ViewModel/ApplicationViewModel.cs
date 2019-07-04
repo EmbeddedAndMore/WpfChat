@@ -10,5 +10,7 @@ namespace WpfLearningProject2.Core.ViewModel
     public class ApplicationViewModel:BaseViewModel
     {
         public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
+
+        public bool SideMenueIsVisible { get; set; } = false;
     }
 }

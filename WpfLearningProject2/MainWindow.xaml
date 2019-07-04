@@ -19,7 +19,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Window}">
-                        <Border Padding="{Binding OuterMarginSizeThickness, FallbackValue=6}">
+                        <Border Margin="{Binding OuterMarginSizeThickness, FallbackValue=6}">
                             
                             <!--Main window content-->
                             <Grid>
@@ -92,7 +92,7 @@
                                     </Border>-->
                                     
                                     <!-- Main content -->
-                                    <Border Grid.Row="1" Padding="{Binding InnerContentPadding}">
+                                    <Border Grid.Row="1" Padding="{Binding InnerContentPadding}" ClipToBounds="True">
                                         <ContentPresenter Content="{TemplateBinding Content}"/>
                                     </Border>
                                 </Grid>
@@ -113,7 +113,7 @@
     
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.Background>
@@ -123,7 +123,7 @@
                x:Name="MainFrame" 
                Content="{Binding ApplicationViewModel.CurrentPage, Source={x:Static local:ViewModelLocator.Instance}, Converter={local:ApplicationPageValueConverter}}"/>
 
-        <local:SideMenuControl Grid.Column="0">
+        <local:SideMenuControl Width="250" Grid.Column="0" local:AnimationSlideInFromLeftProperty.Value="{Binding ApplicationViewModel.SideMenueIsVisible, Source={x:Static local:ViewModelLocator.Instance}}">
             <local:ChatListControl/>
         </local:SideMenuControl>
     </Grid>

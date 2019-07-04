@@ -44,6 +44,9 @@ namespace WpfLearningProject2.Core
 
         private async Task RegisterAsync()
         {
+
+            IoC.Get<ApplicationViewModel>().SideMenueIsVisible ^= true;
+            return;
             // TODO: Go rto register page
             IoC.Get<ApplicationViewModel>().CurrentPage = DataModels.ApplicationPage.Register;
             //((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Register;
