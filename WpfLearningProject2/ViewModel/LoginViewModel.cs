@@ -30,6 +30,7 @@ namespace WpfLearningProject2
         #region Command
 
         public ICommand LoginCommand { get; set; }
+        public ICommand RegisterCommand { get; set; }
         #endregion
 
 
@@ -38,6 +39,13 @@ namespace WpfLearningProject2
         public LoginViewModel()
         {
             LoginCommand = new RelayParameterizedCommand(async (parameter) => await Login(parameter));
+            RegisterCommand = new RelayCommand(async ()=> await Register());
+        }
+
+        private async Task RegisterAsync()
+        {
+            // TODO: Go rto register page
+            await Task.Delay(500);
         }
 
         /// <summary>

@@ -1,5 +1,6 @@
 ﻿
 
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
 using WpfLearningProject2.DataModels;
@@ -30,8 +31,7 @@ namespace WpfLearningProject2.ViewModel
 
         public Thickness ResizeBorderThickness { get { return new Thickness(ResizeBoarder + OuterMarginSize); }}
 
-        public Thickness InnerContentPadding { get; set; } = new Thickness(0);
-
+        public Thickness InnerContentPadding { get; set; } = new Thickness(0); 
         public int OuterMarginSize {
             get
             {
@@ -64,6 +64,8 @@ namespace WpfLearningProject2.ViewModel
         public GridLength TitleHeightGrigLength { get { return new GridLength(TitleHeight + ResizeBoarder); } }
 
         public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Chat;
+
+   
         #endregion
 
         #region Command
