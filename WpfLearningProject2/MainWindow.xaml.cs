@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfLearningProject2.Core.ViewModel;
 using WpfLearningProject2.ViewModel;
 
 namespace WpfLearningProject2

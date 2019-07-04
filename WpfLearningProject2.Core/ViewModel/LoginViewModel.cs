@@ -5,6 +5,7 @@ using System.Security;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using WpfLearningProject2.Core.ViewModel;
 
 namespace WpfLearningProject2.Core
 {
@@ -44,6 +45,7 @@ namespace WpfLearningProject2.Core
         private async Task RegisterAsync()
         {
             // TODO: Go rto register page
+            IoC.Get<ApplicationViewModel>().CurrentPage = DataModels.ApplicationPage.Register;
             //((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Register;
             await Task.Delay(500);
 
