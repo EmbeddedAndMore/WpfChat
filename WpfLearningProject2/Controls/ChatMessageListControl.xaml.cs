@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,21 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfLearningProject2.Core;
-using WpfLearningProject2.ViewModel;
 
 namespace WpfLearningProject2
 {
     /// <summary>
-    /// Interaction logic for LoginPage.xaml
+    /// Interaction logic for ChatListControl.xaml
     /// </summary>
-    public partial class RegisterPage : BasePage<Core.RegisterViewModel>, IHavePassword
+    public partial class ChatMessageListControl : UserControl
     {
-        public RegisterPage()
+        public ChatMessageListControl()
         {
             InitializeComponent();
         }
-
-        public SecureString SecurePassword => PasswordText.SecurePassword;
     }
 }

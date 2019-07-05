@@ -1,16 +1,13 @@
-﻿
-
-using System;
+﻿using System;
 using System.Security;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using WpfLearningProject2.Core.DataModels;
 using WpfLearningProject2.Core.ViewModel;
 
 namespace WpfLearningProject2.Core
 {
-    public class LoginViewModel : BaseViewModel
+    public class RegisterViewModel : BaseViewModel
     {
         #region Private Member
 
@@ -22,7 +19,7 @@ namespace WpfLearningProject2.Core
         #region Public Memeber
         public string Email { get; set; }
 
-        public bool LoginIsRunning { get; set; }
+        public bool RegisterIsRunning { get; set; }
         #endregion
 
 
@@ -37,16 +34,16 @@ namespace WpfLearningProject2.Core
 
 
         #region ctor
-        public LoginViewModel()
+        public RegisterViewModel()
         {
-            LoginCommand = new RelayParameterizedCommand(async (parameter) => await LoginAsync(parameter));
-            RegisterCommand = new RelayCommand(async ()=> await RegisterAsync());
+            RegisterCommand = new RelayParameterizedCommand(async (parameter) => await RegisterAsync(parameter));
+            LoginCommand = new RelayCommand(async ()=> await LoginAsync());
         }
 
-        private async Task RegisterAsync()
+        private async Task LoginAsync()
         {
             // TODO: Go rto register page
-            IoC.Get<ApplicationViewModel>().GoToPage(DataModels.ApplicationPage.Register);
+            IoC.Get<ApplicationViewModel>().GoToPage(DataModels.ApplicationPage.Login);
             //((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Register;
             await Task.Delay(500);
 
@@ -58,17 +55,12 @@ namespace WpfLearningProject2.Core
         /// <param name="parameter"> secured string </param>
         /// <returns></returns>
         #endregion
-        public async Task LoginAsync(object parameter)
+        public async Task RegisterAsync(object parameter)
         {
-            await RunCommand(() => LoginIsRunning, async () =>
+            await RunCommand(() => RegisterIsRunning, async () =>
             {
                 await Task.Delay(5000);
-
-                IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Chat);
-                //var email = Email;
-                //var pass = (parameter as IHavePassword).SecurePassword.Unsecure();
-
-
+               
             });
             //int a, b;
             //await RunCommand(()  =>  5 + 6 > 0, async () =>

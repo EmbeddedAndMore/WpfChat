@@ -119,9 +119,10 @@
         <Grid.Background>
             <ImageBrush TileMode="Tile" ViewportUnits="Absolute" Viewport="0 0 273 287" ImageSource="/Images/Backgrounds/sativa.png"/>
         </Grid.Background>
-        <Frame Grid.Column="1" 
-               x:Name="MainFrame" 
-               Content="{Binding ApplicationViewModel.CurrentPage, Source={x:Static local:ViewModelLocator.Instance}, Converter={local:ApplicationPageValueConverter}}"/>
+        <local:PageHost Grid.Column="1"
+                        d:DataContext=""
+                        DataContext="{Binding ApplicationViewModel.CurrentPage, Source={x:Static local:ViewModelLocator.Instance}, Converter={local:ApplicationPageValueConverter}}"
+                        CurrentPage="{Binding}"/>
 
         <local:SideMenuControl Width="250" Grid.Column="0" local:AnimationSlideInFromLeftProperty.Value="{Binding ApplicationViewModel.SideMenueIsVisible, Source={x:Static local:ViewModelLocator.Instance}}">
             <local:ChatListControl/>

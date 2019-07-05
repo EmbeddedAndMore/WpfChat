@@ -34,7 +34,7 @@
                                                HorizontalAlignment="Center"
                                                 VerticalAlignment="Center"
                                                 Foreground="{StaticResource ForegroundLightBrush}"
-                                                FontSize="{StaticResource FontSizeRegular}"/>
+                                                FontSize="{StaticResource FontSizeLarg}"/>
                                     </Border>
                                 </Border>
 

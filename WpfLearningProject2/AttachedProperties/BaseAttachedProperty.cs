@@ -4,7 +4,7 @@ using System.Windows;
 namespace WpfLearningProject2
 {
     public abstract class BaseAttachedProperty<Parent, Property>
-        where Parent : BaseAttachedProperty<Parent, Property>, new()
+        where Parent : new()
     {
         #region Public Events
         public event Action<DependencyObject, DependencyPropertyChangedEventArgs> ValueChanged = (sender, e) => { };
@@ -29,18 +29,18 @@ namespace WpfLearningProject2
 
         private static object OnValuePropertyUpdated(DependencyObject d, object baseValue)
         {
-            Instance.OnValueUpdated(d, baseValue);
+            (Instance as BaseAttachedProperty<Parent, Property>)?.OnValueUpdated(d, baseValue);
 
-            Instance.OnValueUpdated(d, baseValue);
+           (Instance as BaseAttachedProperty<Parent, Property>)?.OnValueUpdated(d, baseValue);
 
             return baseValue;
         }
 
         private static void OnValuePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            Instance.OnValueChanged(d, e);
+            (Instance as BaseAttachedProperty<Parent, Property>)?.OnValueChanged(d, e);
 
-            Instance.ValueChanged(d, e);
+            (Instance as BaseAttachedProperty<Parent, Property>)?.ValueChanged(d, e);
         }
 
         public static Property GetValue(DependencyObject d) => (Property)d.GetValue(ValueProperty);

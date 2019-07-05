@@ -74,7 +74,7 @@
         <Setter Property="Background" Value="{StaticResource WordOrangeBrush}"/>
         <Setter Property="Foreground" Value="{StaticResource ForegroundLightBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="FontSize" Value="{StaticResource FontSizeLarg}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSizeXXLarg}"/>
         <Setter Property="FontFamily" Value="{StaticResource LatoRegular}"/>
         <Setter Property="Padding" Value="50 10"/>
         <Setter Property="Margin" Value="0 10"/>
@@ -145,7 +145,7 @@
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{StaticResource ForegroundLightBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="FontSize" Value="{StaticResource FontSizeRegular}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSizeLarg}"/>
         <Setter Property="FontFamily" Value="{StaticResource LatoRegular}"/>
         <Setter Property="Padding" Value="50 10"/>
         <Setter Property="Margin" Value="0 10"/>
@@ -185,7 +185,7 @@
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{StaticResource ForegroundLightBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="FontSize" Value="{StaticResource FontSizeLarg}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSizeXXLarg}"/>
         <Setter Property="FontFamily" Value="{StaticResource FontAwesomeSolid}"/>
         <Setter Property="Padding" Value="20"/>
         <Setter Property="Margin" Value="0"/>
@@ -205,6 +205,7 @@
                                 <TextBlock  Text="{TemplateBinding Content}" 
                                         Visibility="{TemplateBinding local:IsBusyProperty.Value, Converter={local:BooleanToVisibilityValueConverter}}"
                                         FontFamily="{TemplateBinding FontFamily}"
+                                            FontSize="{TemplateBinding FontSize}"
                                         Focusable="False" 
                                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
                                         Margin="{TemplateBinding Padding}" 

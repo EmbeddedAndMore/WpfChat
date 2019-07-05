@@ -12,10 +12,12 @@
 
     <Style TargetType="{x:Type Control}" x:Key="BaseStyle">
         <Setter Property="FontFamily" Value="{StaticResource LatoRegular}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSizeRegular}"/>
     </Style>
 
     <Style TargetType="{x:Type TextBlock}" x:Key="BaseTExtBlockStyle">
         <Setter Property="FontFamily" Value="{StaticResource LatoRegular}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSizeRegular}"/>
     </Style>
 
     <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}" />
@@ -24,9 +26,12 @@
     <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTExtBlockStyle}"/>
     <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource BaseStyle}" />
 
-    <system:Double x:Key="FontSizeRegular">16</system:Double>
+    <system:Double x:Key="FontSizeSmaller">10</system:Double>
     <system:Double x:Key="FontSizeSmall">12</system:Double>
-    <system:Double x:Key="FontSizeLarg">26</system:Double>
+    <system:Double x:Key="FontSizeRegular">14</system:Double>
+    <system:Double x:Key="FontSizeLarg">16</system:Double>
+    <system:Double x:Key="FontSizeXLarg">22</system:Double>
+    <system:Double x:Key="FontSizeXXLarg">26</system:Double>
 
 
     <system:String x:Key="FaChatIcon">&#xf086;</system:String>

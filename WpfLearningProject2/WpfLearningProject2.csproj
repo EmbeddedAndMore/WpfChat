@@ -74,13 +74,20 @@
     <Compile Include="AttachedProperties\BaseAttachedProperty.cs" />
     <Compile Include="AttachedProperties\ButtonAttachedProperties.cs" />
     <Compile Include="AttachedProperties\FrameworkElementAnimationAttachedProperty.cs" />
+    <Compile Include="AttachedProperties\NoFrameHistory.cs" />
     <Compile Include="AttachedProperties\PasswordBoxAttachedProperties.cs" />
     <Compile Include="AttachedProperties\PasswordBoxProperties.cs" />
     <Compile Include="Controls\ChatListControl.xaml.cs">
-      <DependentUpon>ChatListControl.xaml</DependentUpon>
-    </Compile>
+		<DependentUpon>ChatListControl.xaml</DependentUpon>
+	</Compile>
     <Compile Include="Controls\ChatListItemControl.xaml.cs">
       <DependentUpon>ChatListItemControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ChatMessageListControl.xaml.cs">
+		<DependentUpon>ChatMessageListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PageHost.xaml.cs">
+      <DependentUpon>PageHost.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\SideMenuControl.xaml.cs">
       <DependentUpon>SideMenuControl.xaml</DependentUpon>
@@ -103,11 +110,19 @@
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ViewModel\WindowViewModel.cs" />
     <Compile Include="WindowResizer.cs" />
+    <Page Include="Controls\ChatMessageListControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\ChatListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ChatListItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\PageHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -10,11 +10,11 @@
 
     <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseStyle}">
 
-        <Setter Property="FontSize" Value="{StaticResource FontSizeLarg}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSizeXXLarg}"/>
         <Setter Property="FontFamily" Value="{StaticResource LatoRegular}"/>
         <Setter Property="BorderBrush" Value="{StaticResource WordBlueBrush}"/>
         <Setter Property="BorderThickness" Value="0 0 0 1"/>
-        <Setter Property="FontSize" Value="{StaticResource FontSizeLarg}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSizeXXLarg}"/>
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Margin" Value="0 5"/>
 
@@ -69,11 +69,11 @@
 
     <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource BaseStyle}">
 
-        <Setter Property="FontSize" Value="{StaticResource FontSizeLarg}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSizeXXLarg}"/>
         <Setter Property="FontFamily" Value="{StaticResource LatoRegular}"/>
         <Setter Property="BorderBrush" Value="{StaticResource WordBlueBrush}"/>
         <Setter Property="BorderThickness" Value="0 0 0 1"/>
-        <Setter Property="FontSize" Value="{StaticResource FontSizeLarg}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSizeXXLarg}"/>
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Margin" Value="0 5"/>
         <Setter Property="local:MonitorPasswordProperty.Value" Value="True"/>
@@ -94,6 +94,7 @@
                                    Text="{TemplateBinding Tag}" 
                                    x:Name="Placeholder" 
                                    FontFamily="{StaticResource LatoThin}"
+                                   FontSize="{TemplateBinding FontSize}"
                                    Padding="{TemplateBinding Padding}"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"

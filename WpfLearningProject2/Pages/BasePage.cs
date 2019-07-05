@@ -7,41 +7,23 @@ using WpfLearningProject2.Core;
 
 namespace WpfLearningProject2
 {
-    public class BasePage<VM> : Page
-        where VM : BaseViewModel , new()
+    /// <summary>
+    /// Base page without viewmodel adding supprt
+    /// </summary>
+    public class BasePage : Page
     {
-
-        #region Private Member
-
-        private VM _viewModel;
-
-        #endregion
-
-        #region Public properties
+        #region Public Properties
         public PageAnimation PageLoadAnimation { get; set; } = PageAnimation.SlideAndFadeInFromRight;
 
         public PageAnimation PageUnloadAnimation { get; set; } = PageAnimation.SlideAndFadeOutToLeft;
 
-        public float SlideSeconds { get; set; } = 0.8f;
+        public float SlideSeconds { get; set; } = 0.4f;
 
-        /// <summary>
-        /// The ViewModel Associated with this.
-        /// </summary>
-        public VM ViewModel
-        {
-            get { return _viewModel; }
-            set
-            {
-                if (_viewModel == value)
-                    return;
 
-                _viewModel = value;
-
-                this.DataContext = _viewModel;
-            }
-        }
+        public bool ShouldAnimateOut { get; set; }
         #endregion
 
+        #region COntructors
 
         public BasePage()
         {
@@ -50,13 +32,18 @@ namespace WpfLearningProject2
                 this.Visibility = Visibility.Collapsed;
 
             Loaded += BasePage_Loaded;
-
-            this.ViewModel = new VM();   
         }
+
+        #endregion
+
+        #region Animations
 
         private async void BasePage_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            await AnimateIn();
+            if (ShouldAnimateOut)
+                await AnimateOut();
+            else
+                await AnimateIn();
         }
 
         public async Task AnimateIn()
@@ -84,5 +71,50 @@ namespace WpfLearningProject2
                     break;
             }
         }
+        #endregion
+    }
+
+    /// <summary>
+    /// Base page with viewmodel adding supprt
+    /// </summary>
+    /// <typeparam name="VM"></typeparam>
+    public class BasePage<VM> : BasePage
+        where VM : BaseViewModel, new()
+    {
+
+        #region Private Member
+
+        private VM _viewModel;
+
+        #endregion
+
+        #region Public properties
+
+
+        /// <summary>
+        /// The ViewModel Associated with this.
+        /// </summary>
+        public VM ViewModel
+        {
+            get { return _viewModel; }
+            set
+            {
+                if (_viewModel == value)
+                    return;
+
+                _viewModel = value;
+
+                this.DataContext = _viewModel;
+            }
+        }
+        #endregion
+
+        #region Contructor
+
+        public BasePage() : base()
+        {
+            this.ViewModel = new VM();
+        } 
+        #endregion
     }
 }

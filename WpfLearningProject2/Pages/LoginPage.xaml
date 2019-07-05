@@ -22,12 +22,12 @@
 
                     <StackPanel>
                         <TextBlock Text="Sign In"
-                               FontSize="{StaticResource FontSizeLarg}"
+                               FontSize="{StaticResource FontSizeXXLarg}"
                                FontFamily="{StaticResource LatoRegular}"
                                Foreground="{StaticResource WordBlueBrush}"/>
 
                         <TextBlock Text="It's going to be great"
-                               FontSize="{StaticResource FontSizeRegular}"
+                               FontSize="{StaticResource FontSizeLarg}"
                                Foreground="{StaticResource ForegroundDarkBrush}"/>
 
                         <TextBox Text="{Binding Email}" Tag="Email" Margin="0 20 0 0"/>
