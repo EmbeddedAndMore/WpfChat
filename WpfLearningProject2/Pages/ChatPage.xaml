@@ -13,6 +13,8 @@
 
 
     <Grid>
-        <TextBlock Text="Hello Mohamad and Mahya" Foreground="White" FontSize="{StaticResource FontSizeXXLarg}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <local:ChatMessageListControl>
+            
+        </local:ChatMessageListControl>
     </Grid>
 </local:BasePage>

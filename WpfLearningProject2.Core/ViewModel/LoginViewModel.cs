@@ -62,7 +62,7 @@ namespace WpfLearningProject2.Core
         {
             await RunCommand(() => LoginIsRunning, async () =>
             {
-                await Task.Delay(5000);
+                //await Task.Delay(5000);
 
                 IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Chat);
                 //var email = Email;
