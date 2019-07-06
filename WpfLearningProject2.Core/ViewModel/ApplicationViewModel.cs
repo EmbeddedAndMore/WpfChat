@@ -9,9 +9,9 @@ namespace WpfLearningProject2.Core.ViewModel
 {
     public class ApplicationViewModel:BaseViewModel
     {
-        public ApplicationPage CurrentPage { get; private set; } = ApplicationPage.Login;
+        public ApplicationPage CurrentPage { get; private set; } = ApplicationPage.Chat;
 
-        public bool SideMenueIsVisible { get; set; } = false;
+        public bool SideMenueIsVisible { get; set; } = true;
 
         public void GoToPage(ApplicationPage page)
         {

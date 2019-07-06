@@ -4,6 +4,7 @@ using System;
 using System.Threading.Tasks;
 using System.Windows.Media.Animation;
 using WpfLearningProject2.Core;
+using System.ComponentModel;
 
 namespace WpfLearningProject2
 {
@@ -27,6 +28,8 @@ namespace WpfLearningProject2
 
         public BasePage()
         {
+            if (DesignerProperties.GetIsInDesignMode(this))
+                return;
 
             if (this.PageLoadAnimation != PageAnimation.None)
                 this.Visibility = Visibility.Collapsed;
@@ -40,6 +43,7 @@ namespace WpfLearningProject2
 
         private async void BasePage_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
+           
             if (ShouldAnimateOut)
                 await AnimateOut();
             else
@@ -54,7 +58,7 @@ namespace WpfLearningProject2
             switch (this.PageLoadAnimation)
             {
                 case PageAnimation.SlideAndFadeInFromRight:
-                    await this.SlideAndFadeInFromRight(this.SlideSeconds);
+                    await this.SlideAndFadeInFromRightAsync(this.SlideSeconds, width: (int)Application.Current.MainWindow.Width);
                     break;
             }
         }

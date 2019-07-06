@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfLearningProject2.Core;
+using WpfLearningProject2.Core.ViewModel;
 
 namespace WpfLearningProject2
 {
@@ -38,6 +41,11 @@ namespace WpfLearningProject2
         public PageHost()
         {
             InitializeComponent();
+
+            if(DesignerProperties.GetIsInDesignMode(this))
+            {
+                NewPage.Content = (BasePage)new ApplicationPageValueConverter().Convert(IoC.Get<ApplicationViewModel>().CurrentPage);
+            }
         }
 
         #endregion
@@ -55,7 +63,17 @@ namespace WpfLearningProject2
             oldPageFrame.Content = oldPageContent;
 
             if (oldPageContent is BasePage oldPage)
+            {
                 oldPage.ShouldAnimateOut = true;
+
+                Task.Delay((int)(oldPage.SlideSeconds * 100)).ContinueWith(x =>
+                {
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        oldPageFrame.Content = null;
+                    });
+                });
+            }
 
 
             newPageFrame.Content = e.NewValue;

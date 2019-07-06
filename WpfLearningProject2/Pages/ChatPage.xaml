@@ -13,8 +13,19 @@
 
 
     <Grid>
-        <local:ChatMessageListControl>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+
+        <Grid >
             
-        </local:ChatMessageListControl>
+        </Grid>
+        <local:ChatMessageListControl/>
+
+
     </Grid>
 </local:BasePage>

@@ -30,12 +30,15 @@
                                FontSize="{StaticResource FontSizeLarg}"
                                Foreground="{StaticResource ForegroundDarkBrush}"/>
 
-                        <TextBox Text="{Binding Email}" Tag="Email" Margin="0 20 0 0"/>
+                        <TextBox Text="{Binding Email}" 
+                                 Tag="Email" Margin="0 20 0 0"
+                                 local:IsFocucedProperty.Value ="True"/>
                         <PasswordBox x:Name="PasswordText" Tag="Password"/>
 
                         <Button Command="{Binding LoginCommand}" 
                                 CommandParameter="{Binding ElementName=Page}"  
                                 local:IsBusyProperty.Value="{Binding LoginIsRunning}"
+                                IsDefault="True"
                                 Content="Login" 
                                 HorizontalAlignment="Center" 
                                 Margin="0 30 0 0"/>

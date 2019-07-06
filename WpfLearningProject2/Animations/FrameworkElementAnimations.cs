@@ -7,11 +7,11 @@ namespace WpfLearningProject2
 {
     public static class FrameworkElementAnimations
     {
-        public static async Task SlideAndFadeInFromRightAsync(this FrameworkElement element, float seconds = 0.3f, bool keepMargin = true)
+        public static async Task SlideAndFadeInFromRightAsync(this FrameworkElement element, float seconds = 0.3f, bool keepMargin = true, int width =0)
         {
             var sb = new Storyboard();
 
-            sb.AddSlideFromRright(seconds, element.ActualWidth,keepMargin: keepMargin);
+            sb.AddSlideFromRright(seconds, width==0 ? element.ActualWidth: width, keepMargin: keepMargin);
 
             sb.AddFadeIn(seconds);
 
@@ -22,11 +22,11 @@ namespace WpfLearningProject2
             await Task.Delay((int)(seconds * 1000));
         }
 
-        public static async Task SlideAndFadeInFromLeftAsync(this FrameworkElement element, float seconds = 0.3f, bool keepMargin = true )
+        public static async Task SlideAndFadeInFromLeftAsync(this FrameworkElement element, float seconds = 0.3f, bool keepMargin = true, int width = 0)
         {
             var sb = new Storyboard();
 
-            sb.AddSlideFromLeft(seconds, element.ActualWidth, keepMargin: keepMargin);
+            sb.AddSlideFromLeft(seconds, width==0? element.ActualWidth: width, keepMargin: keepMargin);
 
             sb.AddFadeIn(seconds);
 
@@ -37,11 +37,11 @@ namespace WpfLearningProject2
             await Task.Delay((int)(seconds * 1000));
         }
 
-        public static async Task SlideAndFadeOutToLeftAsync(this FrameworkElement element, float seconds = 0.3f, bool keepMargin = true)
+        public static async Task SlideAndFadeOutToLeftAsync(this FrameworkElement element, float seconds = 0.3f, bool keepMargin = true, int width = 0)
         {
             var sb = new Storyboard();
 
-            sb.AddSlideToLeft(seconds, element.ActualWidth, keepMargin: keepMargin);
+            sb.AddSlideToLeft(seconds, width == 0 ? element.ActualWidth : width, keepMargin: keepMargin);
 
             sb.AddFadeOut(seconds);
 
@@ -52,11 +52,11 @@ namespace WpfLearningProject2
             await Task.Delay((int)(seconds * 1000));
         }
 
-        public static async Task SlideAndFadeOutToRightAsync(this FrameworkElement element, float seconds = 0.3f, bool keepMargin = true)
+        public static async Task SlideAndFadeOutToRightAsync(this FrameworkElement element, float seconds = 0.3f, bool keepMargin = true, int width = 0)
         {
             var sb = new Storyboard();
 
-            sb.AddSlideToRight(seconds, element.ActualWidth, keepMargin: keepMargin);
+            sb.AddSlideToRight(seconds, width == 0 ? element.ActualWidth : width, keepMargin: keepMargin);
 
             sb.AddFadeOut(seconds);
 
