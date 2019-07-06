@@ -38,4 +38,8 @@
     <system:String x:Key="FaUserIcon">&#xf007;</system:String>
     <system:String x:Key="FaPictureIcon">&#xf1c5;</system:String>
     <system:String x:Key="FaCogIcon">&#xf013;</system:String>
+    <system:String x:Key="FaSearchIcon">&#xf002;</system:String>
+    <system:String x:Key="FaMenuIcon">&#xf142;</system:String>
+    <system:String x:Key="FaAttachIcon">&#xf0c6;</system:String>
+    <system:String x:Key="FaEmojiIcon">&#xf118;</system:String>
 </ResourceDictionary>

@@ -21,11 +21,76 @@
         </Grid.RowDefinitions>
 
 
-        <Grid >
-            
-        </Grid>
-        <local:ChatMessageListControl/>
+        <Grid  Grid.Row="0"
+               Height="50">
+ 
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="M and M"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"
+                       Foreground="{StaticResource ForegroundDarkBrush}"
+                       FontSize="{StaticResource FontSizeXLarg}"
+                       FontFamily="{StaticResource LatoRegular}"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
 
+            <StackPanel Orientation="Horizontal" Grid.Column="1">
+                <Button Style="{StaticResource RegularIconButton}" Content="{StaticResource FaSearchIcon}" Foreground="{StaticResource BackDarkColorBrush}"/>
+                <Button Style="{StaticResource RegularIconButton}" Content="{StaticResource FaMenuIcon}" Foreground="{StaticResource BackDarkColorBrush}"/>
+            </StackPanel>
+        </Grid>
+        
+        
+        <local:ChatMessageListControl Grid.Row="1"/>
+
+        <Grid Grid.Row="2"
+              MinHeight="50"
+              MaxHeight="140"
+              Background="{StaticResource ForegroundLightBrush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Style="{StaticResource RegularIconButton}" 
+                    Content="{StaticResource FaAttachIcon}" 
+                    Foreground="{StaticResource BackDarkColorBrush}"
+                    Height="{Binding MinHeight, RelativeSource={RelativeSource AncestorType=Grid}}"
+                    VerticalAlignment="Top"/>
+
+
+            <TextBox Grid.Column="1"
+                       Tag="Write a message ..."
+                     VerticalAlignment="Center"
+                       FontSize="{StaticResource FontSizeRegular}"
+                       FontFamily="{StaticResource LatoThin}"
+                        Foreground="{StaticResource ForegroundMainBrush}"
+                     BorderThickness="0"
+                     AcceptsReturn="True"
+                     AcceptsTab="True"
+                     VerticalScrollBarVisibility="Auto"/>
+
+
+            <StackPanel Grid.Column="2"
+                        Orientation="Horizontal"
+                        Margin="0 0 15 0"
+                        VerticalAlignment="Top">
+                <Button Style="{StaticResource IconGrowButton}" 
+                        Content="{StaticResource FaEmojiIcon}" 
+                        Foreground="{StaticResource WordOrangeBrush}"
+                        Height="{Binding MinHeight, RelativeSource={RelativeSource AncestorType=Grid}}"/>
+                <Button 
+                        Content="Send" 
+                        Foreground="{StaticResource ForegroundLightBrush}"
+                        FontSize="{StaticResource FontSizeRegular}"
+                        Padding="8"
+                        />
+            </StackPanel>
+        </Grid>
 
     </Grid>
 </local:BasePage>
