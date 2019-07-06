@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfLearningProject2.Core.ViewModel
+namespace WpfLearningProject2.Core
 {
     public class ChatMessageListItemViewModel : BaseViewModel
     {
