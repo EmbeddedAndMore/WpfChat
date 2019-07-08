@@ -16,15 +16,11 @@ using System.Windows.Shapes;
 namespace WpfLearningProject2
 {
     /// <summary>
-    /// Interaction logic for BubbleContent.xaml
+    /// Interaction logic for VerticalMenu.xaml
     /// </summary>
-    public partial class BubbleContent : UserControl
+    public partial class VerticalMenu : UserControl
     {
-
-
-
-
-        public BubbleContent()
+        public VerticalMenu()
         {
             InitializeComponent();
         }

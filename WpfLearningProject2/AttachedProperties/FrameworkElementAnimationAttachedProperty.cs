@@ -1,6 +1,4 @@
-﻿
-
-using System;
+﻿using System;
 using System.Windows;
 
 namespace WpfLearningProject2
@@ -58,6 +56,25 @@ namespace WpfLearningProject2
             }
             else
                 await element.SlideAndFadeOutToLeftAsync(IsFirstRun ? 0 : 0.3f, keepMargin: false);
+        }
+    }
+
+
+    /// <summary>
+    /// Animates framework element ,sliding up from the bottom to show
+    /// and slide out to the buttom to hide
+    /// </summary>
+    public class AnimationSlideInFromBottomProperty : AnimateBaseProperty<AnimationSlideInFromBottomProperty>
+    {
+        protected override async void DoAnimation(FrameworkElement element, bool value)
+        {
+            if (value)
+            {
+                // Animate in
+                await element.SlideAndFadeInFromBottomAsync(IsFirstRun ? 0 : 0.3f, keepMargin: false);
+            }
+            else
+                await element.SlideAndFadeOutToBottomAsync(IsFirstRun ? 0 : 0.3f, keepMargin: false);
         }
     }
 }

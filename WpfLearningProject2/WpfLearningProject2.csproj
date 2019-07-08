@@ -93,6 +93,9 @@
     <Compile Include="Controls\Chat\ChatMessage\ChatMessageListItemControl.xaml.cs">
       <DependentUpon>ChatMessageListItemControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Menu\VerticalMenu.xaml.cs">
+      <DependentUpon>VerticalMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PageHost.xaml.cs">
       <DependentUpon>PageHost.xaml</DependentUpon>
     </Compile>
@@ -112,7 +115,11 @@
     <Compile Include="ValueConverters\ApplicationPageValueConverter.cs" />
     <Compile Include="ValueConverters\BaseValueConverter.cs" />
     <Compile Include="ValueConverters\BooleanToVisibilityValueConverter.cs" />
+    <Compile Include="ValueConverters\HorizontalAlignmentConverter.cs" />
+    <Compile Include="ValueConverters\IconTypeToFontAwesomeConverter.cs" />
     <Compile Include="ValueConverters\IoCConverter.cs" />
+    <Compile Include="ValueConverters\MenuItemVisibilityConverter.cs" />
+    <Compile Include="ValueConverters\PopupContentConverter.cs" />
     <Compile Include="ValueConverters\SentByMeToAlignmentConverter.cs" />
     <Compile Include="ValueConverters\SentByMeToBackgroundConverter.cs" />
     <Compile Include="ValueConverters\StringRGBToBrushConverter.cs" />
@@ -138,6 +145,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Chat\ChatMessage\ChatMessageListItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Menu\VerticalMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -254,6 +265,7 @@
   <ItemGroup>
     <Resource Include="Images\Backgrounds\sativa.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.4.2.1\build\Fody.targets" Condition="Exists('..\packages\Fody.4.2.1\build\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

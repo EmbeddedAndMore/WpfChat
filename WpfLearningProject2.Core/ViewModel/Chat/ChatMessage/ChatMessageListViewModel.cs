@@ -14,11 +14,18 @@ namespace WpfLearningProject2.Core
 
         public List<ChatMessageListItemViewModel> Items { get; set; }
 
-        public bool AttachmentMenuVisible { get; set; }
+        public bool AttachmentMenuVisible { get; set; } = false;
+
+
+        public bool AnyPopupVisible => AttachmentMenuVisible;
+
+        public ChatAttachmentPopupMenuViewModel AttachmentMenu { get; set; }
         #endregion
 
         #region Commands
         public ICommand AttachmentButtonCommand { get; set; }
+
+        public ICommand PopupClickawayCommand { get; set; }
         #endregion
 
         #region Constructor
@@ -26,7 +33,12 @@ namespace WpfLearningProject2.Core
         public ChatMessageListViewModel()
         {
             AttachmentButtonCommand = new RelayCommand(AttachmentButtons);
+            PopupClickawayCommand = new RelayCommand(PopupClickaway);
+
+            AttachmentMenu = new ChatAttachmentPopupMenuViewModel();
         }
+
+        
         #endregion
 
         #region Command methods
@@ -34,7 +46,10 @@ namespace WpfLearningProject2.Core
         {
             AttachmentMenuVisible ^= true;
         }
-
+        private void PopupClickaway()
+        {
+            AttachmentMenuVisible = false;
+        }
         #endregion
     }
 }
