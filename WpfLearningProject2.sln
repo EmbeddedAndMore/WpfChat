@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfLearningProject2", "WpfL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfLearningProject2.Core", "WpfLearningProject2.Core\WpfLearningProject2.Core.csproj", "{06559E11-9A70-4EC0-BF0E-C7A978549A8D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeavyUI", "HeavyUI\HeavyUI.csproj", "{6E43F3B2-9F7D-4DDF-B639-247B55EB20FA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{06559E11-9A70-4EC0-BF0E-C7A978549A8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06559E11-9A70-4EC0-BF0E-C7A978549A8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06559E11-9A70-4EC0-BF0E-C7A978549A8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E43F3B2-9F7D-4DDF-B639-247B55EB20FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E43F3B2-9F7D-4DDF-B639-247B55EB20FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E43F3B2-9F7D-4DDF-B639-247B55EB20FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E43F3B2-9F7D-4DDF-B639-247B55EB20FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
